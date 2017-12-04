@@ -7,6 +7,8 @@ import de.sjsoft.pgn.game.rules.Coordinate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 /**
  * @author saj
@@ -33,10 +35,16 @@ public class Board {
     }
 
     public Tile getTile(Coordinate coordinate) {
-        return tiles.stream()
+        Optional<Tile> foundTile = tiles.stream()
                 .filter(tile -> tile.getCoordinate().equals(coordinate))
-                .findFirst()
-                .get();
+                .findFirst();
+
+        if (!foundTile.isPresent()) {
+            throw new NoSuchElementException();
+        }
+
+        return foundTile.get();
+
     }
 
     private void initEmptyTile(int x, int y) {

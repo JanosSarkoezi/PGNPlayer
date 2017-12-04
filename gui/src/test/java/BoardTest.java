@@ -64,7 +64,7 @@ public class BoardTest {
         Board board = new Board();
         Piece qd1 = board.createPiece("Qd1");
 
-        Move move = new Move(board, qd1.getTile());
+        Move move = new Move(board, qd1);
         List<Tile> tiles = move.calculateLegalMoves();
         printBoard(board);
         Assert.assertEquals(21, tiles.size());
@@ -75,7 +75,7 @@ public class BoardTest {
         Board board = new Board();
         Piece nd1 = board.createPiece("Nd1");
 
-        Move move = new Move(board, nd1.getTile());
+        Move move = new Move(board, nd1);
         List<Tile> tiles = move.calculateLegalMoves();
         printBoard(board);
         Assert.assertEquals(4, tiles.size());
@@ -86,7 +86,7 @@ public class BoardTest {
         Board board = new Board();
         Piece nd4 = board.createPiece("Nd4");
 
-        Move move = new Move(board, nd4.getTile());
+        Move move = new Move(board, nd4);
         List<Tile> tiles = move.calculateLegalMoves();
         printBoard(board);
         Assert.assertEquals(8, tiles.size());
@@ -97,7 +97,7 @@ public class BoardTest {
         Board board = new Board();
         Piece nb4 = board.createPiece("Nb4");
 
-        Move move = new Move(board, nb4.getTile());
+        Move move = new Move(board, nb4);
         List<Tile> tiles = move.calculateLegalMoves();
         printBoard(board);
         Assert.assertEquals(6, tiles.size());
@@ -109,8 +109,8 @@ public class BoardTest {
         Piece nb4 = board.createPiece("Nb4");
         Piece qd1 = board.createPiece("Qd1");
 
-        Move moveB4 = new Move(board, nb4.getTile());
-        Move moveQ1 = new Move(board, qd1.getTile());
+        Move moveB4 = new Move(board, nb4);
+        Move moveQ1 = new Move(board, qd1);
         List<Tile> tilesB4 = moveB4.calculateLegalMoves();
         List<Tile> tilesQ1 = moveQ1.calculateLegalMoves();
         printBoard(board);
