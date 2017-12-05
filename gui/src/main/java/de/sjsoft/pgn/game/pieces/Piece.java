@@ -19,6 +19,7 @@ public abstract class Piece {
 
     public abstract char getAbbreviation();
     public abstract boolean isLongMover();
+    public abstract boolean hasSpecialMove();
 
     public Rule getRule() {
         return rule;

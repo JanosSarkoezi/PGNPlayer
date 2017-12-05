@@ -29,4 +29,9 @@ public class Rock extends Piece {
     public boolean isLongMover() {
         return true;
     }
+
+    @Override
+    public boolean hasSpecialMove() {
+        return false;
+    }
 }

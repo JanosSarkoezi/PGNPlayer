@@ -2,6 +2,7 @@ package de.sjsoft.pgn.game.board;
 
 import de.sjsoft.pgn.game.pieces.Piece;
 import de.sjsoft.pgn.game.rules.Coordinate;
+import de.sjsoft.pgn.game.rules.Direction;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
@@ -14,10 +15,12 @@ import org.apache.commons.lang.builder.ToStringStyle;
 public class Tile {
     private Color color;
     private Piece piece;
+    private Board board;
     private Coordinate coordinate;
     private boolean reachable = false;
 
-    public Tile(Coordinate coordinate, Color color) {
+    public Tile(Coordinate coordinate, Color color, Board board) {
+        this.board = board;
         this.color = color;
         this.coordinate = coordinate;
     }
@@ -36,10 +39,6 @@ public class Tile {
 
     public Coordinate getCoordinate() {
         return coordinate;
-    }
-
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
     }
 
     public boolean isReachable() {

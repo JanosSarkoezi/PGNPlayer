@@ -9,6 +9,8 @@ import de.sjsoft.pgn.game.rules.Rule;
  * @author saj
  */
 public class King extends Piece {
+    private Rule specialRule;
+    private boolean firstMove;
     public King(Tile tile, Color color) {
         super(tile, color);
 
@@ -21,6 +23,10 @@ public class King extends Piece {
         rule.getDirections().add(new Direction(-1, -1));
         rule.getDirections().add(new Direction(0, -1));
         rule.getDirections().add(new Direction(1, -1));
+
+        specialRule = new Rule();
+        specialRule.getDirections().add(new Direction(2,0));
+        specialRule.getDirections().add(new Direction(-2,0));
     }
 
     @Override
@@ -31,5 +37,18 @@ public class King extends Piece {
     @Override
     public boolean isLongMover() {
         return false;
+    }
+
+    @Override
+    public boolean hasSpecialMove() {
+        return true;
+    }
+
+    public boolean isFirstMove() {
+        return firstMove;
+    }
+
+    public void setFirstMove(boolean firstMove) {
+        this.firstMove = firstMove;
     }
 }

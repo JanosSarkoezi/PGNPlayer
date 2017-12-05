@@ -12,19 +12,17 @@ import java.util.List;
  */
 public class Move {
     private Board board;
-    private Piece piece;
     private List<Tile> legalMoves = new ArrayList<>();
 
-    public Move(Board board, Piece piece) {
+    public Move(Board board) {
         this.board = board;
-        this.piece = piece;
     }
 
-    public List<Tile> calculateLegalMoves() {
-        Tile startPosition = piece.getTile();
+    public List<Tile> legalMoves(Piece piece) {
+        Tile startTile = piece.getTile();
         List<Direction> directions = piece.getRule().getDirections();
         for (Direction direction : directions) {
-            for(Coordinate endPosition = startPosition.getCoordinate().add(direction); endPosition != null; endPosition = endPosition.add(direction)) {
+            for(Coordinate endPosition = startTile.getCoordinate().add(direction); endPosition != null; endPosition = endPosition.add(direction)) {
                 Tile tile = board.getTile(endPosition);
                 tile.setReachable(true);
                 legalMoves.add(tile);

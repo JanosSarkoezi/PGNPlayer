@@ -9,8 +9,8 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * @author saj
  */
 public class Coordinate {
-    int x;
-    int y;
+    private final int x;
+    private final int y;
 
     public Coordinate(int x, int y) {
         this.x = x;
@@ -21,23 +21,18 @@ public class Coordinate {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
     public Coordinate add(Direction direction) {
-        if (x + direction.getX() < 0 || y + direction.getY() < 0 || x + direction.getX() > 7 || y + direction.getY() > 7) {
+        int dx = x + direction.getX();
+        int dy = y + direction.getY();
+
+        if (dx < 0 || dy < 0 || dx > 7 || dy > 7) {
             return null;
         } else {
-            return new Coordinate(x+direction.getX(), y+direction.getY());
+            return new Coordinate(dx, dy);
         }
     }
 

@@ -32,4 +32,9 @@ public class Knight extends Piece {
     public boolean isLongMover() {
         return false;
     }
+
+    @Override
+    public boolean hasSpecialMove() {
+        return false;
+    }
 }
